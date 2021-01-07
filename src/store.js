@@ -3,11 +3,15 @@ import { observable, action, runInAction } from "mobx";
 const store = observable({
   products: [],
   getProducts: async () => {
-    const res = await fetch(
-      "https://react-tutorial-demo.firebaseio.com/supermarket.json"
-    );
-    const data = await res.json();
-    return runInAction(() => (store.products = data));
+    try {
+      const res = await fetch(
+        "https://react-tutorial-demo.firebaseio.com/supermarket.json"
+      );
+      const data = await res.json();
+      return runInAction(() => (store.products = data));
+    } catch (err) {
+      console.log(err);
+    }
   },
 
   cart: [],
@@ -16,7 +20,11 @@ const store = observable({
       return { price: product.price_id, quantity: product.quantity };
     }),
   cartToLS() {
-    return localStorage.setItem("cart", JSON.stringify(store.cart));
+    try {
+      return localStorage.setItem("cart", JSON.stringify(store.cart));
+    } catch (err) {
+      console.log("pb with localStorage", err);
+    }
   },
   findProductInCart: (id) => {
     return store.cart.find((product) => product.id === Number(id));

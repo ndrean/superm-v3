@@ -17,3 +17,5 @@ Few rules
 ## TODO : what is "reportwebvitals"?
 
 ## Lazy loading
+
+done

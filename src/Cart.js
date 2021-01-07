@@ -17,11 +17,9 @@ const Cart = observer(({ store }) => {
 
   function handleFormSubmit(event) {
     event.preventDefault();
+
+    const lineItems = store.getItems();
     /*
-    const lineItems = cart.map((product) => {
-      return { price: product.price_id, quantity: product.quantity };
-    });
-    
     stripeLoadedPromise.then((stripe) => {
       stripe
         .redirectToCheckout({
