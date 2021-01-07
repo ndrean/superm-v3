@@ -6,10 +6,6 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-// import useFetch from "./useFetch.js";
-// import ProductDetailInfo from "./ProductDetailInfo.js";
-// import ProductDetailNutrition from "./ProductDetailNutrition.js";
-// import ProductDetailStorage from "./ProductDetailStorage.js";
 const LazyProductDetailInfo = lazy(() => import("./ProductDetailInfo.js"));
 const LazyProductDetailNutrition = lazy(() =>
   import("./ProductDetailNutrition.js")
@@ -22,14 +18,12 @@ const baseURL = "https://react-tutorial-demo.firebaseio.com/";
 
 export default function ProductDetails({ store }) {
   const [product, setProduct] = useState({});
-  // const { get } = useFetch("https://react-tutorial-demo.firebaseio.com/");
   const params = useParams();
   const match = useRouteMatch();
 
   useEffect(() => {
     fetch(baseURL + `productinfo/id${params.id}.json`)
       .then((res) => res.json())
-      // get(`productinfo/id${params.id}.json`)
       .then((data) => {
         setProduct(data);
       })

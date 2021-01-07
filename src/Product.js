@@ -9,16 +9,6 @@ const Product = observer((props) => {
 
   const quantity = store.findQuantityById(details.id) || 0;
 
-  const handleDelete = action((e) => {
-    e.preventDefault();
-    store.productDelete(details.id);
-  });
-
-  const handleAdd = action((e) => {
-    e.preventDefault();
-    store.productAdd(details);
-  });
-
   React.useEffect(() => {
     runInAction(() => store.cartToLS());
   }, [store, store.cart]);
@@ -48,12 +38,16 @@ const Product = observer((props) => {
       <div className="product-checkout">
         <div>
           {quantity > 0 && (
-            <Button outline onClick={handleDelete} className="product-delete">
+            <Button
+              outline
+              onClick={action(() => store.productDelete(details.id))}
+              className="product-delete"
+            >
               x
             </Button>
           )}
         </div>
-        <Button outline onClick={handleAdd}>
+        <Button outline onClick={action(() => store.productAdd(details))}>
           ${details.price}
         </Button>
       </div>

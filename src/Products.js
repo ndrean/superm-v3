@@ -3,7 +3,6 @@ import Product from "./Product.js";
 // import useFetch from "./useFetch.js";
 import Loader from "./Loader.js";
 import { runInAction } from "mobx";
-// import { observer } from "mobx-react-lite";
 
 const Products = ({ store }) => {
   const [products, setProducts] = useState([]);
