@@ -15,3 +15,5 @@ Few rules
 - `runInAction` within `useEffect` to update ...
 
 ## TODO : what is "reportwebvitals"?
+
+## Lazy loading
