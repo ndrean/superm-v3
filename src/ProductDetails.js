@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import {
   NavLink,
   Switch,
@@ -7,9 +7,16 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 // import useFetch from "./useFetch.js";
-import ProductDetailInfo from "./ProductDetailInfo.js";
-import ProductDetailNutrition from "./ProductDetailNutrition.js";
-import ProductDetailStorage from "./ProductDetailStorage.js";
+// import ProductDetailInfo from "./ProductDetailInfo.js";
+// import ProductDetailNutrition from "./ProductDetailNutrition.js";
+// import ProductDetailStorage from "./ProductDetailStorage.js";
+const LazyProductDetailInfo = lazy(() => import("./ProductDetailInfo.js"));
+const LazyProductDetailNutrition = lazy(() =>
+  import("./ProductDetailNutrition.js")
+);
+const LazyProductDetailStorage = lazy(() =>
+  import("./ProductDetailStorage.js")
+);
 
 const baseURL = "https://react-tutorial-demo.firebaseio.com/";
 
@@ -69,19 +76,21 @@ export default function ProductDetails({ store }) {
             </li>
           </ul>
         </div>
-        <Switch>
-          <Route exact path={match.path}>
-            <ProductDetailInfo store={store} product={product} />
-          </Route>
+        <Suspense fallback={<span>Loading</span>}>
+          <Switch>
+            <Route exact path={match.path}>
+              <LazyProductDetailInfo store={store} product={product} />
+            </Route>
 
-          <Route path={match.path + "/nutrition"}>
-            <ProductDetailNutrition nutrition={product.nutrition} />
-          </Route>
+            <Route path={match.path + "/nutrition"}>
+              <LazyProductDetailNutrition nutrition={product.nutrition} />
+            </Route>
 
-          <Route path={match.path + "/storage"}>
-            <ProductDetailStorage storage={product.storage} />
-          </Route>
-        </Switch>
+            <Route path={match.path + "/storage"}>
+              <LazyProductDetailStorage storage={product.storage} />
+            </Route>
+          </Switch>
+        </Suspense>
       </div>
     </div>
   );
