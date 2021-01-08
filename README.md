@@ -34,7 +34,7 @@ Few rules
 
 On app start, the **App** component reads `store.getCartFromLS()`
 
-The cart is saved to localStorage within a `useEffect` from the **Product** component:
+The cart is saved to localStorage within a `useEffect` with `runInAction` from the **Product** component:
 
 ```js
 React.useEffect(() => {
