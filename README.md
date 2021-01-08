@@ -30,6 +30,18 @@ Few rules
 
 - `runInAction` vs/within `useEffect` to update ...
 
+## Saving to localStorage
+
+On app start, the **App** component reads `store.getCartFromLS()`
+
+The cart is saved to localStorage within a `useEffect` from the **Product** component:
+
+```js
+React.useEffect(() => {
+  runInAction(() => store.cartToLS());
+}, [store, store.cart]);
+```
+
 ## TODO : what is "reportwebvitals"?
 
 ## Lazy loading
