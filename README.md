@@ -2,7 +2,13 @@
 
 ## Docker
 
-Two versions:
+Instead of running directly from host:
+
+- ["yarn start"] for dev mode,
+
+- or ["yarn build", "http-server ./build"] to run production mode served with `http-server`,
+
+you can build containers served by Nginx to reuse on Mac or Linux (images have been tagged):
 
 - run the **build** version (rename "docker-compose.build -> docker-compose") Create builder container with Node and `yarn build` the static files, then run Nginx container to serve the copied static files
 

@@ -1,6 +1,7 @@
 version: "3"
 services:
   webserver:
+    image: ndrean/webserver-react:nginx
     build: # when the context is provided, we build the image
       context: ./webserver
       dockerfile: Dockerfile.dev
@@ -12,6 +13,7 @@ services:
       - 8080:80
       - 443:443
   app: # this name is used in Nginx's "proxy_pass"  directive
+    image: ndrean/react-app-superm:dev-mobx-rr
     build:
       context: .
       dockerfile: Dockerfile.dev
