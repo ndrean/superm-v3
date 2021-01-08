@@ -42,7 +42,11 @@ React.useEffect(() => {
 }, [store, store.cart]);
 ```
 
-## TODO : what is "reportwebvitals"?
+## TODO
+
+- what is "reportwebvitals"?
+
+- test saving with Docker / **Redis**
 
 ## Lazy loading
 
