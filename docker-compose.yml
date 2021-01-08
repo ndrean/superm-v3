@@ -8,7 +8,6 @@ services:
     container_name: "nginx"
     volumes:
       - .:/usr/share/nginx/html
-    
     ports:
       - 8080:80
       - 443:443
