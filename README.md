@@ -14,9 +14,7 @@ ok
 
 ## Mobx
 
-> Linting
-
--> Use `configure` for debug <https://mobx.js.org/configuration.html#linting-options>
+> Linting: -> Imperatively use `configure` to debug <https://mobx.js.org/configuration.html#linting-options>
 
 Few rules
 
@@ -24,7 +22,7 @@ Few rules
 
 - proxy `observer`: not 100% clear, when accessing `store.attribute` and `store.getter`, not `store.action()`...
 
-- `runInAction` within `useEffect` to update ...
+- `runInAction` vs/within `useEffect` to update ...
 
 ## TODO : what is "reportwebvitals"?
 
