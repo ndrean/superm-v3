@@ -9,7 +9,7 @@ const Navbar = observer((props) => {
   return (
     <nav className="navbar">
       <NavLink to="/" className="nav-brand">
-        Mobx/ReactRouter
+        Mobx/React-Router-Dom
       </NavLink>
       <ul>
         <li className="nav-item">

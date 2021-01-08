@@ -1,0 +1,20 @@
+version: "3"
+services:
+  webserver:
+    build: # when the context is provided, we build the image
+      context: ./webserver
+      dockerfile: Dockerfile.dev
+    container_name: "nginx"
+    volumes:
+      - .:/usr/share/nginx/html
+    
+    ports:
+      - 8080:80
+      - 443:443
+  app: # this name is used in Nginx's "proxy_pass"  directive
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+  

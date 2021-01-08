@@ -1,5 +1,13 @@
 # Final project React tuto with Mobx/React Router
 
+## Docker
+
+Two versions:
+
+- run the **build** version. Create builder container with Node and `yarn build` the static files, then run Nginx container to serve the copied static files
+
+- run **dev**. Docker-compose creates 2 containers on a network, one with Node/yarn serving, and one with Nginx reverse proxying, with mount binding the source code for live code changes with <code>CTRL R</code>
+
 ## React Router
 
 ok
