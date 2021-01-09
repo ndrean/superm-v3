@@ -27,11 +27,11 @@ const store = observable({
     }
   },
   findProductInCart: (id) => {
-    return store.cart.find((product) => product.id === Number(id));
+    return store.cart.find((product) => product.id === +id); // make sure it's a number
   },
   findQuantityById: (id) => {
     if (store.cart.length > 0) {
-      const product = store.cart.find((product) => product.id === Number(id));
+      const product = store.cart.find((product) => product.id === +id); // make sure it's a number
       if (product) return product.quantity;
     }
     return 0;
