@@ -1,5 +1,9 @@
 # Final project React tuto with Mobx/React Router
 
+Refactored with [Mobx](https://mobx.js.org/README.html) and [React.lazy loading](https://fr.reactjs.org/docs/code-splitting.html)
+
+> Note: biggest difficulty with Mobx is it's doc...
+
 ## Docker
 
 Instead of running directly from host:
@@ -46,7 +50,7 @@ React.useEffect(() => {
 
 - what is "reportwebvitals"?
 
-- test saving with Docker / **Redis**
+- V4: test saving with Docker / **Redis** via **Sinatra** backend
 
 ## Lazy loading
 

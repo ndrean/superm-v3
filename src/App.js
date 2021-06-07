@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
 import { observer } from "mobx-react-lite";
 import store from "./store";
 
@@ -13,7 +12,7 @@ const LazyProductDetails = lazy(() => import("./ProductDetails.js"));
 const LazyCart = lazy(() => import("./Cart.js"));
 
 const App = observer(() => {
-  store.getCartFromLS();
+  store.getCartFromLS(); //<- localStorage
 
   return (
     <BrowserRouter>

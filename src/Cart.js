@@ -17,8 +17,8 @@ const Cart = observer(({ store }) => {
 
   function handleFormSubmit(event) {
     event.preventDefault();
+    store.getItem();
 
-    const lineItems = store.getItems();
     /*
     stripeLoadedPromise.then((stripe) => {
       stripe

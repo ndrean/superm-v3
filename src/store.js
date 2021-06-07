@@ -45,6 +45,7 @@ const store = observable({
     }
     return 0;
   },
+
   getCartFromLS: action(() => {
     try {
       const getFromLS = JSON.parse(localStorage.getItem("cart"));
