@@ -33,19 +33,25 @@ jobs:
       
       - name: Docker build React app dev mode
         run: |
-          docker build -t ndrean/supermv3:dev-mobx-reactrouter -f Dockerfile.dev .
+          docker build -t supermv3-app:dev-mobx-reactrouter -f Dockerfile.dev .
+          
           
       - name: Docker build Nginx webserver
         run: |
-          docker build -t ndrean/react-app-superm:build-mobx-rr -f ./webserver/Dockerfile.dev ./webserver
+          docker build -t superm-ws:dev-mobx-reactrouter -f ./webserver/Dockerfile.dev ./webserver
           
-      
+         
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ${{secret.DOCKER_USER}/supermv3-app:dev-mobx-reactrouter
           
-      #- name: Push to Docker Hub
-        #uses: docker/build-push-action@v2
-        #with:
-          #push: true
-          #tags: ${{secret.DOCKER_USERNAME}/my-docker-hub-repository:latest
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ${{secret.DOCKER_USER}/superm-ws:dev-mobx-reactrouter
       
       # Runs a single command using the runners shell
       #- name: Run a one-line script
