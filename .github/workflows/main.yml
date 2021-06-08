@@ -33,11 +33,11 @@ jobs:
       
       - name: Docker build React app dev mode
         run: |
-          docker build -t username/supermv3:dev-mobx-reactrouter -f Dockerfile.dev .
+          docker build -t ndrean/supermv3:dev-mobx-reactrouter -f Dockerfile.dev .
           
       - name: Docker build Nginx webserver
         run: |
-          docker build -t username/react-app-superm:build-mobx-rr -f ./webserver/Dockerfile.dev ./webserver
+          docker build -t ndrean/react-app-superm:build-mobx-rr -f ./webserver/Dockerfile.dev ./webserver
           
       
           
