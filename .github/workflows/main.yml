@@ -45,13 +45,13 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{secret.DOCKER_USER}/supermv3-app:dev-mobx-reactrouter
+          tags: ${{secret.DOCKER_USER}}/supermv3-app:dev-mobx-reactrouter
           
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{secret.DOCKER_USER}/superm-ws:dev-mobx-reactrouter
+          tags: ${{secret.DOCKER_USER}}/superm-ws:dev-mobx-reactrouter
       
       # Runs a single command using the runners shell
       #- name: Run a one-line script
