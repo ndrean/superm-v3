@@ -32,7 +32,7 @@ jobs:
           
       - name: Docker build Nginx webserver
         run: |
-          docker build -t ndrean/superm-ws:dev-mobx-reactrouter -f ./webserver/Dockerfile.dev ./webserver
+          docker build -t ndrean/supermv3-ws:dev-mobx-reactrouter -f ./webserver/Dockerfile.dev ./webserver
           
           
       - name: Log in to Docker Hub
@@ -44,7 +44,7 @@ jobs:
       - name: Push to Docker Hub
         run: |
           docker push ndrean/supermv3-app:dev-mobx-reactrouter
-          docker push ndrean/superm-ws:dev-mobx-reactrouter
+          docker push ndrean/supermv3-ws:dev-mobx-reactrouter
           
       #- name: Push to Docker Hub
         #uses: docker/build-push-action@v2
