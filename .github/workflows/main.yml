@@ -28,11 +28,11 @@ jobs:
       
       - name: Docker build React app dev mode
         run: |
-          docker build -t supermv3-app:dev-mobx-reactrouter -f Dockerfile.dev .
+          docker build -t ndrean/supermv3-app:dev-mobx-reactrouter -f Dockerfile.dev .
           
       - name: Docker build Nginx webserver
         run: |
-          docker build -t superm-ws:dev-mobx-reactrouter -f ./webserver/Dockerfile.dev ./webserver
+          docker build -t ndrean/superm-ws:dev-mobx-reactrouter -f ./webserver/Dockerfile.dev ./webserver
           
           
       - name: Log in to Docker Hub
